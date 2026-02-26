@@ -1,7 +1,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-# Copyright 2021 Andres Almiray.
+# Copyright 2021-2026 Andres Almiray.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -59,24 +59,22 @@ release:
         - search: 'deps: '
 
 signing:
-  active: RELEASE
-  armored: true
+  pgp:
+    active: RELEASE
+    armored: true
 
 deploy:
   maven:
-    nexus2:
-      maven-central:
+    mavenCentral:
+      release-deploy:
         active: RELEASE
-        url: https://s01.oss.sonatype.org/service/local
-        closeRepository: true
-        releaseRepository: true
+        url: https://central.sonatype.com/api/v1/publisher
+        maxRetries: 150
+        retryDelay: 30
         stagingRepositories:
           - target/staging-deploy
 
 announce:
-  twitter:
-    active: RELEASE
-    status: 🚀 {{projectName}} {{projectVersion}} has been released! {{releaseNotesUrl}}
   mastodon:
     active: RELEASE
     host: https://mastodon.social
