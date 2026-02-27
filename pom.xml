@@ -210,20 +210,24 @@
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
                 <configuration combine.children="override">
-                    <header>${sessionRootDirectory}/etc/license.txt</header>
                     <strictCheck>true</strictCheck>
-                    <properties>
-                        <author>Andres Almiray</author>
-                    </properties>
-                    <excludes>
-                        <exclude>README.adoc</exclude>
-                        <exclude>LICENSE</exclude>
-                        <exclude>.github/**/*</exclude>
-                        <exclude>mvnw</exclude>
-                        <exclude>mvnw.cmd</exclude>
-                        <exclude>.mvn/wrapper/*</exclude>
-                        <exclude>out/**/*</exclude>
-                    </excludes>
+                    <licenseSets>
+                        <licenseSet>
+                            <header>${sessionRootDirectory}/etc/license.txt</header>
+                            <properties>
+                                <author>Andres Almiray</author>
+                            </properties>
+                            <excludes>
+                                <exclude>README.adoc</exclude>
+                                <exclude>LICENSE</exclude>
+                                <exclude>.github/**/*</exclude>
+                                <exclude>mvnw</exclude>
+                                <exclude>mvnw.cmd</exclude>
+                                <exclude>.mvn/wrapper/*</exclude>
+                                <exclude>out/**/*</exclude>
+                            </excludes>
+                        </licenseSet>
+                    </licenseSets>
                     <mapping>
                         <yml>SCRIPT_STYLE</yml>
                         <toml>SCRIPT_STYLE</toml>
@@ -264,8 +268,8 @@
                                 <enforceBytecodeVersion>
                                     <maxJdkVersion>${java.version}</maxJdkVersion>
                                 </enforceBytecodeVersion>
-                                <dependencyConvergence />
-                                <requireUpperBoundDeps />
+                                <dependencyConvergence/>
+                                <requireUpperBoundDeps/>
                             </rules>
                         </configuration>
                     </execution>
