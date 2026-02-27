@@ -25,9 +25,10 @@ project:
     - Andres Almiray
   license: Apache-2.0
   inceptionYear: 2021
-  java:
-    groupId: org.kordamp.maven
-    artifactId: kordamp-parent
+  languages:
+    java:
+      groupId: org.kordamp.maven
+      artifactId: kordamp-parent
 
 release:
   github:
